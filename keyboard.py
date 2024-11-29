@@ -1,4 +1,3 @@
-import cobra
 from pynput import keyboard as pkeyboard
 
 

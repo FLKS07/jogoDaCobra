@@ -1,9 +1,10 @@
-import shutil
 import terminal
+import apples
+from colorama import init as colorama_init
+from colorama import Fore
+from colorama import Style
 
 
-console_width = shutil.get_terminal_size().columns
-console_height = shutil.get_terminal_size().lines
 
 
 class Cobra:
@@ -15,7 +16,7 @@ class Cobra:
         self.last_position_x = 0
         self.last_position_y = 0
 
-        print(f"Y: {console_height} X: {console_width}")
+        #print(f"Y: {terminal.console_height} X: {terminal.console_width}")
 
     def changePosition(self, x,y):
         self.last_position_x = self.x
@@ -26,16 +27,18 @@ class Cobra:
         
 
         # Wrap around if the position goes beyond the console width or height
-        if self.x > console_width:
+        if self.x > terminal.console_width:
             self.x = 1  # Wrap to the start
         elif self.x <= 0:
-            self.x = console_width
+            self.x = terminal.console_width
 
-        if self.y > console_height:
+        if self.y > terminal.console_height:
             self.y = 1
         elif self.y <= 0:
-            self.y = console_height
+            self.y = terminal.console_height
         
+        for tail in self.__caudas:
+            tail.clear_self()
 
         for i in range(0, len(self.__caudas)):
             if(i == 0):
@@ -48,12 +51,24 @@ class Cobra:
         for tail in self.__caudas:
             tail.show_screen()
 
+        if(apples.apple_position_x == self.x and apples.apple_position_y == self.y):
+            Cobra.addCaudas(self)
+            apples.generate_apple()
 
         
         #print(f"New position: X = {self.x}, Y = {self.y}")
 
     def addCaudas(self):
         self.__caudas.append(Cauda(self.last_position_x, self.last_position_y))
+    
+    def getPoints(self):
+        return len(self.__caudas)
+    
+    def checkDead(self):
+        for x in range(len(self.__caudas)):
+            if(self.x == self.__caudas[x].x and self.y == self.__caudas[x].y):
+                return True
+        return False
 
 class Cauda:
     def changePosition(self, x, y):
@@ -69,7 +84,10 @@ class Cauda:
 
         self.last_position_x = self.x
         self.last_position_y = self.y
+    def clear_self(self):
+        terminal.print_at(self.x, self.y, chr(32))
     def show_screen(self):
-        terminal.print_at(self.x, self.y, "A")
+        terminal.print_at(self.x, self.y, f"{Fore.GREEN}A{Style.RESET_ALL}")
+        
     
     
