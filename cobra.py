@@ -3,6 +3,7 @@ import apples
 from colorama import init as colorama_init
 from colorama import Fore
 from colorama import Style
+import sounds
 
 
 
@@ -11,7 +12,7 @@ class Cobra:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.__caudas = []
+        self.caudas = []
 
         self.last_position_x = 0
         self.last_position_y = 0
@@ -37,36 +38,37 @@ class Cobra:
         elif self.y <= 0:
             self.y = terminal.console_height
         
-        for tail in self.__caudas:
+        for tail in self.caudas:
             tail.clear_self()
 
-        for i in range(0, len(self.__caudas)):
+        for i in range(0, len(self.caudas)):
             if(i == 0):
-                self.__caudas[0].changePosition(self.last_position_x, self.last_position_y) 
+                self.caudas[0].changePosition(self.last_position_x, self.last_position_y) 
             else:
-                self.__caudas[i].changePosition(self.__caudas[i - 1].last_position_x, self.__caudas[i - 1].last_position_y)
+                self.caudas[i].changePosition(self.caudas[i - 1].last_position_x, self.caudas[i - 1].last_position_y)
 
 
         # Show the tails on the screen
-        for tail in self.__caudas:
+        for tail in self.caudas:
             tail.show_screen()
 
         if(apples.apple_position_x == self.x and apples.apple_position_y == self.y):
+            sounds.play_sound_file("sounds\pickup.wav")
             Cobra.addCaudas(self)
-            apples.generate_apple()
+            apples.generate_apple(self.caudas, self.x, self.y)
 
         
         #print(f"New position: X = {self.x}, Y = {self.y}")
 
     def addCaudas(self):
-        self.__caudas.append(Cauda(self.last_position_x, self.last_position_y))
+        self.caudas.append(Cauda(self.last_position_x, self.last_position_y))
     
     def getPoints(self):
-        return len(self.__caudas)
+        return len(self.caudas)
     
     def checkDead(self):
-        for x in range(len(self.__caudas)):
-            if(self.x == self.__caudas[x].x and self.y == self.__caudas[x].y):
+        for x in range(len(self.caudas)):
+            if(self.x == self.caudas[x].x and self.y == self.caudas[x].y):
                 return True
         return False
     
@@ -74,8 +76,8 @@ class Cobra:
         if(x == self.x and y == self.y):
             return True
         else:
-            for x in range(len(self.__caudas)):
-                if(self.__caudas[x].x == self.x and y == self.__caudas[x].y):
+            for x in range(len(self.caudas)):
+                if(self.caudas[x].x == self.x and y == self.caudas[x].y):
                     return True
             return False
 
