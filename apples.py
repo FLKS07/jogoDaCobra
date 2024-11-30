@@ -1,5 +1,6 @@
 import terminal
 import random
+import cobra
 
 from colorama import init as colorama_init
 from colorama import Fore
@@ -15,6 +16,10 @@ def generate_apple():
 
     apple_position_y = random.randrange(1,terminal.console_height)
     apple_position_x = random.randrange(1,terminal.console_width)
+
+    while(cobra.Cobra.checkCoordineIsOcupied(apple_position_x,apple_position_y)):
+        apple_position_y = random.randrange(1,terminal.console_height)
+        apple_position_x = random.randrange(1,terminal.console_width)
 
     
 

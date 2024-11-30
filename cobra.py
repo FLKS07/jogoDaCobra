@@ -69,6 +69,15 @@ class Cobra:
             if(self.x == self.__caudas[x].x and self.y == self.__caudas[x].y):
                 return True
         return False
+    
+    def checkCoordineIsOcupied(self,x,y):
+        if(x == self.x and y == self.y):
+            return True
+        else:
+            for x in range(len(self.__caudas)):
+                if(self.__caudas[x].x == self.x and y == self.__caudas[x].y):
+                    return True
+            return False
 
 class Cauda:
     def changePosition(self, x, y):
