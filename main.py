@@ -56,6 +56,6 @@ file.write(str(cobra.getPoints()))
 
 sounds.play_sound_file("game_over.wav")
 
-print("GameOver")
-
+print("GameOver, press ENTER to EXIT the game!")
+input()
 
