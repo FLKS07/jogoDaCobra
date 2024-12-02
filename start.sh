@@ -1,3 +1,3 @@
 #!/bin/bash
 #!/usr/bin/env python3
-python3 main.py
+python3 assets\\scripts\\main.py

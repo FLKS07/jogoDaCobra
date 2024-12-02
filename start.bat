@@ -1,3 +1,3 @@
 @echo off
-python.exe main.py
+python.exe assets\scripts\main.py
 pause
