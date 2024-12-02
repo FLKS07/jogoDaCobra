@@ -23,7 +23,11 @@ def generate_apple(caudas, x, y):
         apple_position_x = random.randrange(1,terminal.console_width)
 
     
-    
+def clear_apple():
+    global apple_position_y
+    global apple_position_x
+    terminal.print_at(apple_position_x, apple_position_y, ' ')
+
         
 
 def checkPos(caudas, x, y):

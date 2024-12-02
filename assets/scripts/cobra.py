@@ -4,6 +4,7 @@ from colorama import init as colorama_init
 from colorama import Fore
 from colorama import Style
 import sounds
+import os
 
 
 
@@ -53,7 +54,7 @@ class Cobra:
             tail.show_screen()
 
         if(apples.apple_position_x == self.x and apples.apple_position_y == self.y):
-            sounds.play_sound_file("pickup.wav")
+            sounds.play_sound_file("..\\sounds\\pickup.wav")
             Cobra.addCaudas(self)
             apples.generate_apple(self.caudas, self.x, self.y)
 
