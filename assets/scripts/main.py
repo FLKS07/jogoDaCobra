@@ -37,14 +37,13 @@ apples.generate_apple(cobra.caudas, cobra.x, cobra.y)
 terminal.move_cursor_off_screen(10000, 10000)
 
 while True:
-
     terminal.handle_resize(cobra) 
     terminal.show_title(f"Points: {Fore.LIGHTBLUE_EX}{cobra.getPoints()}{Style.RESET_ALL}, HighScore: {Fore.YELLOW}{highScore}{Style.RESET_ALL},")
     heading = keyboard_my.heading
     cobra.changePosition(heading[0],heading[1])    
     terminal.print_at(cobra.x, cobra.y, f"{Fore.WHITE}O{Style.RESET_ALL}")
     apples.print_apple()
-    #time.sleep(speed)
+    time.sleep(speed)
     if(cobra.checkDead() == True):
         break
 
