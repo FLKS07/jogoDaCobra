@@ -33,3 +33,8 @@ def show_title(text):
 def hide_cursor():
     sys.stdout.write("\x1b[?25l")
     sys.stdout.flush()
+
+def move_cursor_off_screen(x, y):
+    # Moves the cursor to a specific (x, y) position, out of view if desired
+    sys.stdout.write(f"\x1b[{y};{x}H")
+    sys.stdout.flush()

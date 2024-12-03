@@ -34,7 +34,7 @@ os.system('cls' if os.name == 'nt' else 'clear') # Limpa o ecrã
 apples.generate_apple(cobra.caudas, cobra.x, cobra.y)
 
 
-terminal.hide_cursor()
+terminal.move_cursor_off_screen(10000, 10000)
 
 while True:
 
