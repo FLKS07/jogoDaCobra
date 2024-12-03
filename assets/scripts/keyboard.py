@@ -22,7 +22,7 @@ def on_press(key):
         
     except AttributeError:
         pressed_keys.add(key)  # Add special keys
-        print("Cannot find key")
+        #print("Cannot find key")
 
 def on_release(key):
     try:

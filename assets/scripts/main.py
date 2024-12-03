@@ -1,5 +1,5 @@
 import os
-highscore_path = "..\\game_data\\highscore.txt"
+highscore_path = "../game_data/highscore.txt"
 highScore = open(highscore_path).read()
 os.system('cls' if os.name == 'nt' else 'clear') 
 
@@ -53,7 +53,7 @@ file = open(highscore_path, 'w')
 file.write(str(cobra.getPoints()))
 
 sounds.play_sound_file("..\\sounds\\game_over.wav")
-
+os.system('cls' if os.name == 'nt' else 'clear') 
 print("GameOver, press ENTER to EXIT the game!")
 input()
 
