@@ -29,9 +29,3 @@ def show_title(text):
     global text_size
     text_size = len(text)
     print_at(1,1, text)
-
-def clear_title():
-    global text_size
-    clear = ""    
-    for x in range(text_size):
-        clear += chr(32)
