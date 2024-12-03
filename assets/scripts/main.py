@@ -17,7 +17,7 @@ from colorama import init as colorama_init
 from colorama import Fore
 from colorama import Style
 import sounds
-import keyboard # type: ignore
+import keyboard_my as keyboard
 
 
 import time
@@ -55,5 +55,5 @@ file.write(str(cobra.getPoints()))
 sounds.play_sound_file("..\\sounds\\game_over.wav")
 os.system('cls' if os.name == 'nt' else 'clear') 
 print("GameOver, press ENTER to EXIT the game!")
-#input()
+input()
 

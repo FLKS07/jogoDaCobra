@@ -17,7 +17,7 @@ def on_press(key):
     elif key.char == 's':
         heading = [0, 1]
     
-    print("Urban Gorillas sábado á noite")
+    #print("Urban Gorillas sábado á noite")
 
 
 
