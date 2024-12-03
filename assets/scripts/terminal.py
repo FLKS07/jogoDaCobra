@@ -29,3 +29,7 @@ def show_title(text):
     global text_size
     text_size = len(text)
     print_at(1,1, text)
+
+def hide_cursor():
+    sys.stdout.write("\x1b[?25l")
+    sys.stdout.flush()

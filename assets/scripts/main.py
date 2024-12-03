@@ -34,7 +34,7 @@ os.system('cls' if os.name == 'nt' else 'clear') # Limpa o ecrã
 apples.generate_apple(cobra.caudas, cobra.x, cobra.y)
 
 
-print(print("\033[300303A", end=""))
+terminal.hide_cursor()
 
 while True:
 
