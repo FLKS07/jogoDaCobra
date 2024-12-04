@@ -34,8 +34,8 @@ class Cobra:
             self.x = terminal.console_width
 
         if self.y > terminal.console_height:
-            self.y = 1
-        elif self.y <= 0:
+            self.y = 2
+        elif self.y <= 1:
             self.y = terminal.console_height
         
         for tail in self.caudas:

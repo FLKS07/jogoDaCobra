@@ -13,14 +13,16 @@ def generate_apple(caudas, x, y):
     global apple_position_x
     global apple_position_y
 
-    apple_position_y = random.randrange(1,terminal.console_height)
+    apple_position_y = random.randrange(2,terminal.console_height)
     apple_position_x = random.randrange(1,terminal.console_width)
 
     
     
     while(checkPos(caudas,x,y)):
-        apple_position_y = random.randrange(1,terminal.console_height)
+        apple_position_y = random.randrange(2,terminal.console_height)
         apple_position_x = random.randrange(1,terminal.console_width)
+
+    print_apple()
 
     
 def clear_apple():

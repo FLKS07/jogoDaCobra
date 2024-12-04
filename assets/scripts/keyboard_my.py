@@ -5,6 +5,8 @@ heading = [0, 1]
 def on_press(key):
     global heading
     
+    last_heading = heading
+
     try:
         if key.char == 'a':
             heading = [-1, 0]
@@ -14,6 +16,9 @@ def on_press(key):
             heading = [0, -1]
         elif key.char == 's':
             heading = [0, 1]
+
+        if(last_heading[0] == heading[0] *-1 or last_heading[0] == heading[0] *-1):
+            heading = last_heading
     except AttributeError:
         # Handle special keys here if needed (e.g., arrows, etc.)
         pass
