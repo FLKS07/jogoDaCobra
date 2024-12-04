@@ -2,8 +2,13 @@ from pynput import keyboard as pkeyboard
 
 heading = [0, 1]
 
+
+
+cheat = False
+
 def on_press(key):
     global heading
+    global cheat
     
     last_heading = heading
 
@@ -16,6 +21,7 @@ def on_press(key):
             heading = [0, -1]
         elif key.char == 's':
             heading = [0, 1]
+
 
         if(last_heading[0] == heading[0] *-1 or last_heading[0] == heading[0] *-1):
             heading = last_heading

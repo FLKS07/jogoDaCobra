@@ -33,12 +33,15 @@ def clear_apple():
         
 
 def checkPos(caudas, x, y):
-    for segment in caudas:
-        if segment.x == apple_position_x and segment.y == apple_position_y:
+    global apple_position_x
+    global apple_position_y
+    
+    for cauda in caudas:
+        if cauda.x == apple_position_x and cauda.y == apple_position_y:
             return True
-        if x == apple_position_x and y == apple_position_y:
+        if x == apple_position_x and y == apple_position_x:
             return True
-        return False
+    return False
     
 
 def print_apple():

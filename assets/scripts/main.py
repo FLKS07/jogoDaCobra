@@ -10,8 +10,17 @@ import keyboard_my
 import time
 
 highscore_path = "../game_data/highscore.txt"
-highScore = open(highscore_path).read()
+highScore = int(open(highscore_path).read())
 os.system('cls' if os.name == 'nt' else 'clear') 
+with_music = False
+
+try:
+    input_ = input("Quer música? sim ou não (Não é padrão): ")
+    if(input_ == "sim"):
+        with_music = True
+except:
+    pass
+
 
 try:
     speed = float(input("Qual é a velocidade de jogo? Maior número menor velocidade(1 É Padrão): "))
@@ -47,6 +56,9 @@ def title():
         
 apples.generate_apple(cobra.caudas, cobra.x, cobra.y)
 
+if(with_music == True):
+    sounds.play_loop("../sounds/waterfall.mp3")
+
 while True:
     terminal.handle_resize(cobra) 
     terminal.show_title(title())
@@ -61,9 +73,12 @@ while True:
 keyboard_my.listener.stop()
 os.system('cls' if os.name == 'nt' else 'clear') 
 
-file = open(highscore_path, 'w')
-file.write(str(cobra.getPoints()))
-file.close
+points = cobra.getPoints()
+ 
+if(points > highScore):
+    file = open(highscore_path, 'w')
+    file.write(str(points))
+    file.close
 
 sounds.play_sound_file("../sounds/game_over.wav")
 os.system('cls' if os.name == 'nt' else 'clear') 

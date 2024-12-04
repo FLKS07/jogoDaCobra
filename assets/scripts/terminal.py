@@ -1,6 +1,7 @@
 import sys
 import shutil
 import apples
+import os
 
 console_width = shutil.get_terminal_size().columns
 console_height = shutil.get_terminal_size().lines
@@ -22,8 +23,10 @@ def handle_resize(cobra):
     console_height = shutil.get_terminal_size().lines
 
     if(last_console_height != console_height or last_console_width != console_width):
+        os.system('cls' if os.name == 'nt' else 'clear') 
         apples.clear_apple()
         apples.generate_apple(cobra.caudas, cobra.x, cobra.y)
+        
 
 def show_title(text):
     global text_size
