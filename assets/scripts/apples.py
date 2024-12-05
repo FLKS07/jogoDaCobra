@@ -45,5 +45,5 @@ def checkPos(caudas, x, y): # O código para verificar se a posição está ocup
     
 
 def print_apple(): # Mostra a maçã na linha de comandos
-    terminal.print_at(apple_position_x, apple_position_y, f"{Fore.RED}H{Style.RESET_ALL}")
+    terminal.print_at(apple_position_x, apple_position_y, f"{Fore.RED}█{Style.RESET_ALL}")
     

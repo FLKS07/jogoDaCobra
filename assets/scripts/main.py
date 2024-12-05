@@ -3,7 +3,7 @@ import cobra #O módulo feito pelo o grupo da cobra onde está o código para co
 import terminal #O módulo feito peolo o grupo para saber várias característiscas sobre a linha de comandos
 import apples #O módulo da maçã para controlar os spawns das maçãs
 from colorama import Fore
-from colorama import Style # Módulos para mudar a cor do bacgrkound e das letras dos caracteres
+from colorama import Style # Módulos para mudar a cor do bacgrkound e das cores dos caracteres
 from colorama import Back
 import sounds #Módulo feito pelo o grupo para tocar música
 import keyboard_my #Módulo feito pelo o grupo para saber quais são as teclas do teclado para controlar a cobra
@@ -72,9 +72,9 @@ while True: # Lógica principal do jogo
     terminal.show_title(title()) # Mostra o título no terminal
     heading = keyboard_my.heading # Vais buscar a direção ao módulo keyboard_my feita pelo o grupo
     cobra.changePosition(heading[0],heading[1]) # Vai adicionar o vetor de posição da cobra com o vetor da direção buscada na linha acima
-    terminal.print_at(cobra.x, cobra.y, f"{Fore.WHITE}O{Style.RESET_ALL}") #Mostra no terminal a cabeça da cobra a branco
+    terminal.print_at(cobra.x, cobra.y, f"{Fore.WHITE}█{Style.RESET_ALL}") #Mostra no terminal a cabeça da cobra a branco
     time.sleep(speed) # Espera pelo o tempo defenido pelo o jogador a cima
-    
+    apples.print_apple() # Para ter a certeza que a maçã é mostrada no ecrã
     if(cobra.checkDead() == True):
         break
 
@@ -97,7 +97,7 @@ else:
     print(f"Pontuação:{Fore.LIGHTBLUE_EX}{cobra.getPoints()}{Style.RESET_ALL} Recorde:{Fore.YELLOW}{highScore}{Style.RESET_ALL}")
     # Se não escreve na linha de comandos quantos pontos foram obtidos e qual era o recorde
 
-    
+
 sys.stdout.flush() # Limpa o buffer de input da linha de comandos
 print(f"\n{Fore.LIGHTRED_EX}GameOver{Style.RESET_ALL} Pressiona o ENTER para fechar o jogo")
 input() # Quando o utlizador clicar no ENTER fecha o programa

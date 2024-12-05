@@ -98,7 +98,7 @@ class Cauda: # O Objeto ca Cauda
     def clear_self(self): # Limpa a cauda no terminal
         terminal.print_at(self.x, self.y, chr(32))
     def show_screen(self): # Mostra a cauda na linha de comandos
-        terminal.print_at(self.x, self.y, f"{Fore.GREEN}A{Style.RESET_ALL}")
+        terminal.print_at(self.x, self.y, f"{Fore.GREEN}█{Style.RESET_ALL}")
         
     
     
