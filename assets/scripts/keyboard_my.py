@@ -18,7 +18,7 @@ def on_press(key): # O código quando o jogador pressiona uma tecla qualquer
     elif key == Key.down:
         heading = [0, 1]
 
-    if(last_heading[0] == heading[0] *-1 or last_heading[0] == heading[0] *-1): # Se o vetor de direção tiver o sentido contrário e a mesma direção vai ficar com
+    if(last_heading[0] == heading[0] *-1 or last_heading[1] == heading[1] *-1): # Se o vetor de direção tiver o sentido contrário e a mesma direção vai ficar com
         heading = last_heading # o mesmo vetor de direção
 # Start the listener in the background
 listener = pkeyboard.Listener(on_press=on_press) # O código para Escutar as teclas

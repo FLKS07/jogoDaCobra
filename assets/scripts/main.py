@@ -8,6 +8,7 @@ from colorama import Back
 import sounds #Módulo feito pelo o grupo para tocar música
 import keyboard_my #Módulo feito pelo o grupo para saber quais são as teclas do teclado para controlar a cobra
 import time # Módulo para parar o programa em um determinado tempo
+import sys # Módulo para mudar certas coisa sobre a linha de comandos
 
 highscore_path = "../game_data/highscore.txt" # Saber onde o ficheiro do recorde está guardado
 
@@ -96,6 +97,8 @@ else:
     print(f"Pontuação:{Fore.LIGHTBLUE_EX}{cobra.getPoints()}{Style.RESET_ALL} Recorde:{Fore.YELLOW}{highScore}{Style.RESET_ALL}")
     # Se não escreve na linha de comandos quantos pontos foram obtidos e qual era o recorde
 
+    
+sys.stdout.flush() # Limpa o buffer de input da linha de comandos
 print(f"\n{Fore.LIGHTRED_EX}GameOver{Style.RESET_ALL} Pressiona o ENTER para fechar o jogo")
 input() # Quando o utlizador clicar no ENTER fecha o programa
 
